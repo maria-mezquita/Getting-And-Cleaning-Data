@@ -1,0 +1,36 @@
+Module 4 - Getting and Cleaning Data
+
+1. Data Source: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+2. Processing Steps
+
+#' 1. Downloads and extracts the UCI HAR Dataset if not already present
+#' 2. Loads feature names and activity labels
+#' 3. Reads training and test data sets
+#' 4. Merges training and test data into a single data set
+#' 5. Extracts only measurements on mean and standard deviation
+#' 6. Uses descriptive activity names for activities in the data set
+#' 7. Appropriately labels the data set with descriptive variable names
+#' 8. Creates a tidy data set with the average of each variable for each activity and subject
+#' 9. Writes the tidy data set to a file
+
+3. Identifiers:
+
+Subject: Subject identifier from 1 to 30
+Activity: Activity performed 
+
+4. Measurements
+The tidy dataset contains measurement variables, showcasing mean and std values of the original data source and follow the pattern below:
+
+names(extractedData) <- gsub("^t", "Time", names(extractedData))
+names(extractedData) <- gsub("^f", "Frequency", names(extractedData))
+names(extractedData) <- gsub("Acc", "Accelerometer", names(extractedData))
+names(extractedData) <- gsub("Gyro", "Gyroscope", names(extractedData))
+names(extractedData) <- gsub("Mag", "Magnitude", names(extractedData))
+names(extractedData) <- gsub("BodyBody", "Body", names(extractedData))
+names(extractedData) <- gsub("-mean\\(\\)", "Mean", names(extractedData))
+names(extractedData) <- gsub("-std\\(\\)", "StdDev", names(extractedData))
+
+5. Final Output
+
+The final output of the assignment is a txt file called tidy_data
